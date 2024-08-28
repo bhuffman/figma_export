@@ -1,0 +1,23 @@
+<button id="downloadJson">Download JSON</button>
+<button id="downloadSchema">Download Prisma Schema</button>
+<script>
+  // Handle messages from the plugin
+  window.onmessage = async (event) => {
+    const { jsonObjectString, prismaSchema } = event.data.pluginMessage;
+
+    // Set up the download buttons
+    document.getElementById("downloadJson").onclick = () => downloadFile(jsonObjectString, "nestedObject.json");
+    document.getElementById("downloadSchema").onclick = () => downloadFile(prismaSchema, "prismaSchema.prisma");
+  };
+
+  // Function to download a file
+  function downloadFile(content, filename) {
+    const blob = new Blob([content], { type: "text/plain" });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement("a");
+    a.href = url;
+    a.download = filename;
+    a.click();
+    URL.revokeObjectURL(url);
+  }
+</script>

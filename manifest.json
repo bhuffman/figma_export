@@ -1,0 +1,14 @@
+{
+  "name": "Schema Export based on Figma Naming Convention",
+  "id": "1410742415679661218",
+  "api": "1.0.0",
+  "main": "code.js",
+  "capabilities": [],
+  "enableProposedApi": false,
+  "documentAccess": "dynamic-page",
+  "editorType": ["figma"],
+  "ui": "ui.html",
+  "networkAccess": {
+    "allowedDomains": ["none"]
+  }
+}
